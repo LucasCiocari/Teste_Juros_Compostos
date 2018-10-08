@@ -36,20 +36,30 @@ public class JurosCompostosTest {
 
 	@Test
 	@FileParameters("dados.csv")
-	public void testeParametrizacaoJUnit(String valor, String juros, String periodo, String saida) {
+	public void testeParametrizacaoJUnit(String value, String interest, String period, String expected) {
+
+		value.replace(".", ",");
+		//WebDriverWait wait = new WebDriverWait(driver,30);
+		//wait.until(presenceOfElementLocated(By.name("p1")));
 		WebElement value_field = driver.findElement(By.name("p1"));
 		value_field.clear();
-		value_field.sendKeys(valor);
+		value_field.sendKeys(value);
 
+		interest.replace(".", ",");
 		WebElement interest_field = driver.findElement(By.name("i1"));
 		interest_field.clear();
-		interest_field.sendKeys("6,70");
-
+		interest_field.sendKeys(interest);
+		
+		period.replace(".", ",");
 		WebElement period_field = driver.findElement(By.name("n1"));
 		period_field.clear();
-		period_field.sendKeys("10");
-
+		period_field.sendKeys(period);
+		
+		expected.replace(".", ",");
 		WebElement out_field = driver.findElement(By.id("out01"));
-		System.out.println(out_field.getText());
+		//assertEquals(expected,);
+		
+		System.out.println(out_field.getText().split(" ")[1]);
+
 	}
 }
