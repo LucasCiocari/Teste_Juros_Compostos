@@ -59,7 +59,7 @@ public class JurosCompostosTest {
 		page.fillInterest(interest);
 		page.fillPeriod(period);
 		expected = expected.replace(".", ",");
-		if(expected != page.getActual()) 
+		if(expected.contentEquals(page.getActual())) 
 			test.log(LogStatus.PASS, "Valor está correto.");
 		else
 			test.log(LogStatus.FAIL, "Valor está incorreto.");
