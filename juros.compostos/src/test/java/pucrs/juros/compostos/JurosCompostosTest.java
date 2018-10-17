@@ -34,7 +34,7 @@ public class JurosCompostosTest {
 		driver = new ChromeDriver();
 		
 		report = new ExtentReports("ExtentReportResults.html");
-		this.driver.manage().window().maximize();
+		driver.manage().window().maximize();
 		String initialPage = "http://fazaconta.com/juros-simples-compostos.htm";
 		driver.get(initialPage);
 		
